@@ -4,6 +4,7 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:notus/notus.dart';
+import 'package:zefyr/src/widgets/dots.dart';
 
 import 'editable_box.dart';
 import 'horizontal_rule.dart';
@@ -144,7 +145,9 @@ class _RawZefyrLineState extends State<RawZefyrLine> {
     EmbedNode node = widget.node.children.single;
     EmbedAttribute embed = node.style.get(NotusAttribute.embed);
 
-    if (embed.type == EmbedType.horizontalRule) {
+    if (embed.type == EmbedType.dots) {
+      return ZefyrDots(node: node);
+    } else if (embed.type == EmbedType.horizontalRule) {
       return ZefyrHorizontalRule(node: node);
     } else if (embed.type == EmbedType.image) {
       return ZefyrImage(node: node, delegate: scope.imageDelegate);

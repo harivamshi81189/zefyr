@@ -34,6 +34,7 @@ enum ZefyrToolbarAction {
   hideKeyboard,
   close,
   confirm,
+  dots,
 }
 
 final kZefyrToolbarAttributeActions = <ZefyrToolbarAction, NotusAttributeKey>{
@@ -49,6 +50,7 @@ final kZefyrToolbarAttributeActions = <ZefyrToolbarAction, NotusAttributeKey>{
   ZefyrToolbarAction.code: NotusAttribute.block.code,
   ZefyrToolbarAction.quote: NotusAttribute.block.quote,
   ZefyrToolbarAction.horizontalRule: NotusAttribute.embed.horizontalRule,
+  ZefyrToolbarAction.dots: NotusAttribute.embed.dots,
 };
 
 /// Allows customizing appearance of [ZefyrToolbar].
@@ -259,6 +261,7 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
       buildButton(context, ZefyrToolbarAction.quote),
       buildButton(context, ZefyrToolbarAction.code),
       buildButton(context, ZefyrToolbarAction.horizontalRule),
+      buildButton(context, ZefyrToolbarAction.dots),
       ImageButton(),
     ];
     return buttons;
@@ -353,6 +356,7 @@ class _DefaultZefyrToolbarDelegate implements ZefyrToolbarDelegate {
     ZefyrToolbarAction.hideKeyboard: Icons.keyboard_hide,
     ZefyrToolbarAction.close: Icons.close,
     ZefyrToolbarAction.confirm: Icons.check,
+    ZefyrToolbarAction.dots: Icons.more_horiz,
   };
 
   static const kSpecialIconSizes = {
