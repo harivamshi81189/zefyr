@@ -314,12 +314,12 @@ class NotusStyle {
 
 /// Applies bold style to a text segment.
 class _BoldAttribute extends NotusAttribute<bool> {
-  const _BoldAttribute() : super._('b', NotusAttributeScope.inline, true);
+  const _BoldAttribute() : super._('bold', NotusAttributeScope.inline, true);
 }
 
 /// Applies italic style to a text segment.
 class _ItalicAttribute extends NotusAttribute<bool> {
-  const _ItalicAttribute() : super._('i', NotusAttributeScope.inline, true);
+  const _ItalicAttribute() : super._('italic', NotusAttributeScope.inline, true);
 }
 
 /// Builder for link attribute values.
