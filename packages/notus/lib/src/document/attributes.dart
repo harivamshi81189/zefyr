@@ -340,7 +340,7 @@ class LinkAttributeBuilder extends NotusAttributeBuilder<String> {
 /// There is no need to use this class directly, consider using
 /// [NotusAttribute.heading] instead.
 class HeadingAttributeBuilder extends NotusAttributeBuilder<int> {
-  static const _kHeading = 'heading';
+  static const _kHeading = 'header';
   const HeadingAttributeBuilder._()
       : super._(_kHeading, NotusAttributeScope.line);
 
