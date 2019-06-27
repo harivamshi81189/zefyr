@@ -63,6 +63,7 @@ class _ZefyrSelectionOverlayState extends State<ZefyrSelectionOverlay>
   }
 
   bool get isToolbarVisible => _toolbar != null;
+
   bool get isToolbarHidden => _toolbar == null;
 
   @override
@@ -540,6 +541,7 @@ class _SelectionToolbar extends StatefulWidget {
 
 class _SelectionToolbarState extends State<_SelectionToolbar> {
   ZefyrScope get editable => widget.scope;
+
   TextSelection get selection => widget.delegate.textEditingValue.selection;
 
   @override
@@ -586,6 +588,7 @@ class _SelectionToolbarState extends State<_SelectionToolbar> {
 
     final toolbar = widget.controls.buildToolbar(context, editingRegion,
         block.preferredLineHeight, midpoint, endpoints, widget.delegate);
+
     return new CompositedTransformFollower(
       link: block.layerLink,
       showWhenUnlinked: false,
