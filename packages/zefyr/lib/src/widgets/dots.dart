@@ -27,8 +27,8 @@ class ZefyrDots extends LeafRenderObjectWidget {
 }
 
 class RenderDots extends RenderEditableBox {
-  static const _kPaddingBottom = 24.0;
-  static const _kRadius = 4.0;
+  static const _kPaddingBottom = 60.0;
+  static const _kRadius = 2.0;
   static const _kHeight = 2 * _kRadius + _kPaddingBottom;
 
   RenderDots({
@@ -79,8 +79,8 @@ class RenderDots extends RenderEditableBox {
     final paint = new ui.Paint()
       ..color = Colors.grey;
     var offsetMid = Offset(size.width / 2 - _kRadius, (_kHeight/2) - 2 * _kRadius);
-    var offsetLeft = offsetMid.translate(-16, 0);
-    var offsetRight = offsetMid.translate(16, 0);
+    var offsetLeft = offsetMid.translate(-32, 0);
+    var offsetRight = offsetMid.translate(32, 0);
     context.canvas.drawCircle(offsetLeft, _kRadius, paint);
     context.canvas.drawCircle(offsetMid, _kRadius, paint);
     context.canvas.drawCircle(offsetRight, _kRadius, paint);
