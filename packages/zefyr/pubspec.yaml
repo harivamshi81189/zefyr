@@ -14,9 +14,12 @@ dependencies:
   url_launcher: ^5.0.0
   image_picker: ^0.5.0
   quill_delta: ^1.0.0-dev.1.0
-  notus:
-    path: ../notus
   meta: ^1.1.0
+  notus:
+    git:
+      url: git://github.com/joshmatta/zefyr.git
+      ref: 69f30336f48e090d245752eddecc1acd7d2c630a
+      path: packages/notus
 
 dev_dependencies:
   flutter_test:
