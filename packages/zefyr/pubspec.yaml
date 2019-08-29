@@ -17,7 +17,7 @@ dependencies:
   notus:
     git:
       url: git://github.com/joshmatta/zefyr.git
-      ref: 69f30336f48e090d245752eddecc1acd7d2c630a
+      ref: f3ee87299d510968d1d5a0309093666608b79660
       path: packages/notus
   quiver_hashcode: ^2.0.0
 
