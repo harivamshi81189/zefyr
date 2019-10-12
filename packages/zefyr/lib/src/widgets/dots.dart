@@ -17,7 +17,7 @@ class ZefyrDots extends LeafRenderObjectWidget {
 
   @override
   RenderDots createRenderObject(BuildContext context) {
-    return new RenderDots(node: node);
+    return RenderDots(node: node);
   }
 
   @override
@@ -57,13 +57,13 @@ class RenderDots extends RenderEditableBox {
     if (local.isCollapsed) {
       final dx = local.extentOffset == 0 ? 0.0 : size.width;
       return [
-        new ui.TextBox.fromLTRBD(dx, 0.0, dx, size.height, TextDirection.ltr),
+        ui.TextBox.fromLTRBD(dx, 0.0, dx, size.height, TextDirection.ltr),
       ];
     }
 
     return [
-      new ui.TextBox.fromLTRBD(0.0, 0.0, 0.0, size.height, TextDirection.ltr),
-      new ui.TextBox.fromLTRBD(
+      ui.TextBox.fromLTRBD(0.0, 0.0, 0.0, size.height, TextDirection.ltr),
+      ui.TextBox.fromLTRBD(
           size.width, 0.0, size.width, size.height, TextDirection.ltr),
     ];
   }
@@ -71,14 +71,15 @@ class RenderDots extends RenderEditableBox {
   @override
   void performLayout() {
     assert(constraints.hasBoundedWidth);
-    size = new Size(constraints.maxWidth, _kHeight);
+    size = Size(constraints.maxWidth, _kHeight);
   }
 
   @override
   void paint(PaintingContext context, Offset offset) {
-    final paint = new ui.Paint()
-      ..color = Colors.grey;
-    var offsetMid = Offset(size.width / 2 - _kRadius, (_kHeight/2) - 2 * _kRadius);
+    final paint = ui.Paint()..color = Colors.grey;
+    var offsetMid =
+        Offset(size.width / 2 - _kRadius, (_kHeight / 2) - 2 * _kRadius) +
+            offset;
     var offsetLeft = offsetMid.translate(-32, 0);
     var offsetRight = offsetMid.translate(32, 0);
     context.canvas.drawCircle(offsetLeft, _kRadius, paint);
@@ -93,13 +94,13 @@ class RenderDots extends RenderEditableBox {
     if (offset.dx > size.width / 2) {
       position++;
     }
-    return new TextPosition(offset: position);
+    return TextPosition(offset: position);
   }
 
   @override
   TextRange getWordBoundary(TextPosition position) {
     final start = _node.documentOffset;
-    return new TextRange(start: start, end: start + 1);
+    return TextRange(start: start, end: start + 1);
   }
 
   @override
@@ -108,9 +109,8 @@ class RenderDots extends RenderEditableBox {
     final localSelection = getLocalSelection(selection);
     assert(localSelection != null);
     if (!localSelection.isCollapsed) {
-      final Paint paint = new Paint()
-        ..color = selectionColor;
-      final rect = new Rect.fromLTWH(0.0, 0.0, size.width, _kHeight);
+      final Paint paint = Paint()..color = selectionColor;
+      final rect = Rect.fromLTWH(0.0, 0.0, size.width, _kHeight);
       context.canvas.drawRect(rect.shift(offset), paint);
     }
   }
@@ -120,7 +120,7 @@ class RenderDots extends RenderEditableBox {
     final pos = position.offset - node.documentOffset;
     Offset caretOffset = Offset.zero;
     if (pos == 1) {
-      caretOffset = caretOffset + new Offset(size.width - 1.0, 0.0);
+      caretOffset = caretOffset + Offset(size.width - 1.0, 0.0);
     }
     return caretOffset;
   }
